@@ -1,6 +1,24 @@
-#results {
+body {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+.results {
   text-align: center;
 }
 #buttons {
   text-align: center;
+}
+#score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+span {
+  display: flex;
+  justify-content: center;
+}
+button {
+  padding: 30px;
+  margin: 25px;
+  width: 200px;
 }
