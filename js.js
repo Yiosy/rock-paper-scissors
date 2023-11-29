@@ -13,7 +13,6 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 let gameCount = 0;
-ComputerChoice = getComputerChoice();
 
 function PlayGame(ComputerChoice, PlayerChoice) {
   if (PlayerChoice == ComputerChoice) {
@@ -48,15 +47,27 @@ function PlayGame(ComputerChoice, PlayerChoice) {
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const results = document.querySelector("div");
 
 rock.addEventListener("click", () => {
-  console.log("test");
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "ROCK");
+  results.innerText = "RESULT:" + " " + gameResult;
+  console.log(ComputerChoice);
 });
+
 paper.addEventListener("click", () => {
-  console.log("test");
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "PAPER");
+  results.innerText = "RESULT:" + " " + gameResult;
+  console.log(ComputerChoice);
 });
+
 scissors.addEventListener("click", () => {
-  console.log("test");
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "SCISSORS");
+  results.innerText = "RESULT:" + " " + gameResult;
+  console.log(ComputerChoice);
 });
 
 // function game() {
