@@ -10,27 +10,56 @@ function getComputerChoice() {
     return "SCISSORS";
   }
 }
-
-let PlayerChoice = prompt("make your choice").toUpperCase();
+let playerScore = 0;
+let computerScore = 0;
+let gameCount = 0;
 ComputerChoice = getComputerChoice();
 
 function PlayGame(ComputerChoice, PlayerChoice) {
   if (PlayerChoice == ComputerChoice) {
+    gameCount++;
     return "ITS A DRAW";
   } else if (PlayerChoice == "ROCK" && ComputerChoice == "PAPER") {
+    gameCount++;
+    computerScore++;
     return "you lose";
   } else if (PlayerChoice == "ROCK" && ComputerChoice == "SCISSORS") {
+    gameCount++;
+    playerScore++;
     return "you win";
   } else if (PlayerChoice == "PAPER" && ComputerChoice == "SCISSORS") {
+    gameCount++;
+    computerScore++;
     return "you lose";
   } else if (PlayerChoice == "PAPER" && ComputerChoice == "ROCK") {
+    gameCount++;
+    playerScore++;
     return "you win";
   } else if (PlayerChoice == "SCISSORS" && ComputerChoice == "ROCK") {
+    gameCount++;
+    computerScore++;
     return "you lose";
   } else if (PlayerChoice == "SCISSORS" && ComputerChoice == "PAPER") {
+    gameCount++;
+    playerScore++;
     return "you win";
   }
 }
-console.log(PlayGame(ComputerChoice, PlayerChoice));
-console.log(PlayerChoice);
-console.log(ComputerChoice);
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    PlayerChoice = prompt("make your choice").toUpperCase();
+    ComputerChoice = getComputerChoice();
+    console.log(PlayGame(ComputerChoice, PlayerChoice));
+    if (gameCount == 5) {
+      if (playerScore > computerScore) {
+        return "grats you won";
+      } else if (playerScore < computerScore) {
+        return "oh no you lost";
+      } else {
+        return "draw";
+      }
+    }
+  }
+}
+console.log(game());
