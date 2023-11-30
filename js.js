@@ -13,12 +13,11 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 let gameCount = 0;
-ComputerChoice = getComputerChoice();
 
 function PlayGame(ComputerChoice, PlayerChoice) {
   if (PlayerChoice == ComputerChoice) {
     gameCount++;
-    return "ITS A DRAW";
+    return "draw";
   } else if (PlayerChoice == "ROCK" && ComputerChoice == "PAPER") {
     gameCount++;
     computerScore++;
@@ -45,21 +44,78 @@ function PlayGame(ComputerChoice, PlayerChoice) {
     return "you win";
   }
 }
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const results = document.querySelector("div");
+const body = document.querySelector("#score");
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    PlayerChoice = prompt("make your choice").toUpperCase();
-    ComputerChoice = getComputerChoice();
-    console.log(PlayGame(ComputerChoice, PlayerChoice));
-    if (gameCount == 5) {
-      if (playerScore > computerScore) {
-        return "grats you won";
-      } else if (playerScore < computerScore) {
-        return "oh no you lost";
-      } else {
-        return "draw";
-      }
-    }
+const playerResult = document.createElement("div");
+const computerResult = document.createElement("span");
+playerResult.innerText = "Your score:" + " " + playerScore;
+computerResult.innerText = "Computer's score:" + " " + computerScore;
+body.append(playerResult, computerResult);
+
+rock.addEventListener("click", () => {
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "ROCK").toUpperCase();
+  results.innerText = gameResult;
+  playerResult.innerText = "Your score:" + " " + playerScore;
+  computerResult.innerText = "Computer's score:" + " " + computerScore;
+  if (gameCount === 5) gameEnd();
+});
+
+paper.addEventListener("click", () => {
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "PAPER").toUpperCase();
+  results.innerText = gameResult;
+  playerResult.innerText = "Your score:" + " " + playerScore;
+  computerResult.innerText = "Computer's score:" + " " + computerScore;
+  if (gameCount === 5) gameEnd();
+});
+
+scissors.addEventListener("click", () => {
+  ComputerChoice = getComputerChoice();
+  let gameResult = PlayGame(ComputerChoice, "SCISSORS").toUpperCase();
+  results.innerText = gameResult;
+  playerResult.innerText = "Your score:" + " " + playerScore;
+  computerResult.innerText = "Computer's score:" + " " + computerScore;
+  if (gameCount === 5) gameEnd();
+});
+
+function gameEnd() {
+  if (playerScore > computerScore) {
+    gameCount = 0;
+    playerScore = 0;
+    computerScore = 0;
+    alert("grats you won");
+  } else if (playerScore < computerScore) {
+    gameCount = 0;
+    playerScore = 0;
+    computerScore = 0;
+    alert("oh no you lost");
+  } else {
+    gameCount = 0;
+    playerScore = 0;
+    computerScore = 0;
+    alert("draw");
   }
 }
-console.log(game());
+
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     PlayerChoice = prompt("make your choice").toUpperCase();
+//     ComputerChoice = getComputerChoice();
+//     console.log(PlayGame(ComputerChoice, PlayerChoice));
+//     if (gameCount == 5) {
+//       if (playerScore > computerScore) {
+//         return "grats you won";
+//       } else if (playerScore < computerScore) {
+//         return "oh no you lost";
+//       } else {
+//         return "draw";
+//       }
+//     }
+//   }
+// }
+// console.log(game());
