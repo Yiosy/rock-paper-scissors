@@ -9,6 +9,7 @@ body {
 }
 #buttons {
   text-align: center;
+  padding: 10px;
 }
 #score {
   display: flex;
@@ -20,11 +21,9 @@ span {
   justify-content: center;
 }
 button {
-  padding: 30px;
   margin: 25px;
   width: 200px;
-}
-button {
+  cursor: pointer;
   border-radius: 12px;
   background-color: lightblue;
 }
