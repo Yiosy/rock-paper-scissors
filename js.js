@@ -60,6 +60,7 @@ rock.addEventListener("click", () => {
   ComputerChoice = getComputerChoice();
   let gameResult = PlayGame(ComputerChoice, "ROCK").toUpperCase();
   results.innerText = gameResult;
+  PC.innerText = ComputerChoice;
   playerResult.innerText = "Your score:" + " " + playerScore;
   computerResult.innerText = "Computer's score:" + " " + computerScore;
   if (gameCount === 5) gameEnd();
@@ -69,6 +70,7 @@ paper.addEventListener("click", () => {
   ComputerChoice = getComputerChoice();
   let gameResult = PlayGame(ComputerChoice, "PAPER").toUpperCase();
   results.innerText = gameResult;
+  PC.innerText = ComputerChoice;
   playerResult.innerText = "Your score:" + " " + playerScore;
   computerResult.innerText = "Computer's score:" + " " + computerScore;
   if (gameCount === 5) gameEnd();
@@ -78,6 +80,7 @@ scissors.addEventListener("click", () => {
   ComputerChoice = getComputerChoice();
   let gameResult = PlayGame(ComputerChoice, "SCISSORS").toUpperCase();
   results.innerText = gameResult;
+  PC.innerText = ComputerChoice;
   playerResult.innerText = "Your score:" + " " + playerScore;
   computerResult.innerText = "Computer's score:" + " " + computerScore;
   if (gameCount === 5) gameEnd();
@@ -99,6 +102,11 @@ function gameEnd() {
     alert("draw");
   }
 }
+
+const h1 = document.querySelector("h1");
+const PC = document.createElement("div");
+PC.style.padding = "30px";
+h1.appendChild(PC);
 
 // function game() {
 //   for (let i = 0; i < 5; i++) {
