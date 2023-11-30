@@ -82,22 +82,20 @@ scissors.addEventListener("click", () => {
   computerResult.innerText = "Computer's score:" + " " + computerScore;
   if (gameCount === 5) gameEnd();
 });
-
+function resetGame() {
+  gameCount = 0;
+  playerScore = 0;
+  computerScore = 0;
+}
 function gameEnd() {
   if (playerScore > computerScore) {
-    gameCount = 0;
-    playerScore = 0;
-    computerScore = 0;
+    resetGame();
     alert("grats you won");
   } else if (playerScore < computerScore) {
-    gameCount = 0;
-    playerScore = 0;
-    computerScore = 0;
+    resetGame();
     alert("oh no you lost");
   } else {
-    gameCount = 0;
-    playerScore = 0;
-    computerScore = 0;
+    resetGame();
     alert("draw");
   }
 }
